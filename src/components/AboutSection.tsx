@@ -1,12 +1,20 @@
 import Image from "next/image";
 const SKILLS = [
-  "SQL",
-  "Excel",
-  "Tableau",
   "Python",
-  "Statistical Analysis",
-  "Data Visualization",
+  "SQL",
+  "Tableau",
+  "Excel",
+  "TypeScript",
+  "React",
+  "PostgreSQL",
+  "Streamlit",
+  "AWS Lambda",
+  "AWS Bedrock",
+  "MediaPipe",
   "Databricks",
+  "Snowflake",
+  "Data Visualization",
+  "Statistical Analysis",
 ];
 
 export default function AboutSection() {
@@ -67,7 +75,7 @@ export default function AboutSection() {
               </svg>
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:johari19@outlook.com"
               aria-label="Email"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-border bg-brand-surface/60 text-brand-muted transition-all duration-300 hover:border-brand-accent/50 hover:text-brand-accent hover:scale-110"
             >

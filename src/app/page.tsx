@@ -63,6 +63,7 @@ const PROJECTS = [
     liveUrl:
       "https://builder.aws.com/content/39lHNWFs6RCW1y2iiSQmKdDXYrI/aideas-motionmatch-ai",
     ctaLabel: "Read Case Study",
+    badge: "Top 3% AWS 10,000 AIdeas Competition",
   },
   {
     imageSrc: "/videos/project-three-image.png",

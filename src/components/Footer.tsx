@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="flex items-center gap-6">
           {/* Email */}
           <a
-            href="mailto:your@email.com"
+            href="mailto:johari19@outlook.com"
             className="group flex items-center gap-2 text-sm text-brand-muted transition-colors hover:text-brand-accent"
           >
             <svg
@@ -40,7 +40,7 @@ export default function Footer() {
 
           {/* GitHub */}
           <a
-            href="https://github.com"
+            href="https://github.com/johari-Frias"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 text-sm text-brand-muted transition-colors hover:text-brand-accent"
@@ -58,7 +58,7 @@ export default function Footer() {
 
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/johari-f-37baa5210"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 text-sm text-brand-muted transition-colors hover:text-brand-accent"

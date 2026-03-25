@@ -23,6 +23,8 @@ export interface ProjectCardProps {
   liveUrl: string;
   /** Custom label for the CTA button (defaults to "Launch Live App") */
   ctaLabel?: string;
+  /** Optional award badge displayed next to the title */
+  badge?: string;
 }
 
 const STAR_TABS = ["Situation", "Task", "Action", "Result"] as const;
@@ -40,6 +42,7 @@ export default function ProjectCard({
   techStack,
   liveUrl,
   ctaLabel = "Launch Live App",
+  badge,
 }: ProjectCardProps) {
   const [activeTab, setActiveTab] = useState<StarTab>("Situation");
 
@@ -84,8 +87,14 @@ export default function ProjectCard({
       <div className="flex flex-1 flex-col gap-5 p-6">
         {/* Title + Impact hook */}
         <div>
-          <h3 className="text-xl font-bold leading-snug tracking-tight">
+          <h3 className="inline-flex items-center text-xl font-bold leading-snug tracking-tight">
             {title}
+            {badge && (
+              <span className="ml-3 inline-flex items-center gap-1 translate-y-[-2px] rounded-full border border-amber-500/20 bg-amber-500/10 px-2.5 py-0.5 text-xs font-semibold text-amber-500 shadow-[0_0_12px_rgba(245,158,11,0.15)]">
+                <svg className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                {badge}
+              </span>
+            )}
           </h3>
           <p className="mt-2 text-sm font-medium text-brand-accent">
             {impactHook}
