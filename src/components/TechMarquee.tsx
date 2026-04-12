@@ -2,6 +2,7 @@ const TECH_ITEMS = [
   "Python",
   "AWS Lambda",
   "AWS Bedrock",
+  "AWS CDK",
   "TypeScript",
   "React",
   "PostgreSQL",
@@ -9,6 +10,13 @@ const TECH_ITEMS = [
   "MediaPipe",
   "Databricks",
   "Snowflake",
+  "Agentic AI",
+  "LLMs",
+  "RAG",
+  "ETL Pipelines",
+  "Pandas",
+  "Docker",
+  "DynamoDB",
 ];
 
 function TechBadge({ label }: { label: string }) {

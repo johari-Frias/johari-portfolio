@@ -19,13 +19,13 @@ const robotoMono = Roboto_Mono({
 
 /* ─── SEO Metadata ─── */
 export const metadata: Metadata = {
-  title: "Portfolio — AI Engineer & Data Analyst",
+  title: "Portfolio — AI Systems Architect & Data Engineer",
   description:
-    "Data Analyst and AI Engineer specializing in serverless cloud architectures, interactive data diagnostics, and driving product monetization through analytics.",
+    "Top 3% AWS Global Finalist specializing in serverless GenAI applications, event-driven Agentic AI systems, and scalable Python ETL pipelines.",
   openGraph: {
-    title: "Portfolio — AI Engineer & Data Analyst",
+    title: "Portfolio — AI Systems Architect & Data Engineer",
     description:
-      "Scalable data pipelines, AI-augmented workflows, and full-stack web applications that turn complex telemetry into actionable product strategies.",
+      "I build serverless GenAI applications, event-driven Agentic AI systems, and Python ETL pipelines that scale from the edge to the database.",
     type: "website",
   },
 };
