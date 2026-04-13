@@ -80,7 +80,7 @@ export default function HeroSection() {
 
         {/* Secondary Ghost CTA */}
         <a
-          href="https://github.com"
+          href="https://www.linkedin.com/in/johari-f-37baa5210/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-lg border border-brand-accent/40 px-7 py-3 text-sm font-semibold text-brand-accent transition-all duration-300 hover:border-brand-accent hover:bg-brand-accent/10 hover:scale-105"
