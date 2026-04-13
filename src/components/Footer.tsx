@@ -10,8 +10,7 @@ export default function Footer() {
           Currently open to new opportunities
         </p>
         <p className="max-w-md text-sm text-brand-muted">
-          If you&apos;re looking for an AI Engineer or Data Analyst who ships
-          production-grade systems, let&apos;s talk.
+          2026 Johari Frias — AI Systems Architecture & Data Engineering.
         </p>
 
         {/* Links */}
