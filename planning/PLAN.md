@@ -86,7 +86,7 @@ Lower-severity items from the code review that are still pending.
 
 ---
 
-## Phase 5: Add Juice Rush Project (POR-1) — Awaiting Review
+## Phase 5: Add Juice Rush Project (POR-1) — Completed 2026-05-12
 
 Add the Juice Rush gamified PWA as the fourth portfolio entry. Source: Jira ticket POR-1.
 
@@ -98,6 +98,20 @@ Add the Juice Rush gamified PWA as the fourth portfolio entry. Source: Jira tick
 | 4 | Write unit tests for ProjectCard rendering with Juice Rush data | Done |
 | 5 | Run `npm run test` — 8/8 tests pass | Done |
 | 6 | Visual verification via Playwright on local dev server | Done |
+
+---
+
+## Phase 6: Performance Optimization (Completed 2026-05-12)
+
+Diagnosed slow initial page load caused by 23.8 MB of uncompressed video with no browser caching.
+
+| # | Task | Status | Commit |
+|---|------|--------|--------|
+| 1 | Add `Cache-Control: public, max-age=1yr, immutable` headers for `/videos/*` and `/images/*` in `next.config.ts` | Done | `5fbbd60` |
+| 2 | Generate lightweight poster JPGs (~53 KB each) from video first frames | Done | `5fbbd60` |
+| 3 | Add `posterSrc` prop to `ProjectCard` — show `<Image>` before IntersectionObserver fires, `poster` attr on `<video>` | Done | `5fbbd60` |
+| 4 | Add `posterSrc` entries to PROJECTS array for both video projects | Done | `5fbbd60` |
+| 5 | Compress videos with ffmpeg (target ~2-4 MB each) | Pending | — |
 
 ---
 
