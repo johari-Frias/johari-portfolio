@@ -1,29 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { ExternalLinkIcon, StarIcon } from "@/components/icons";
 
 export interface ProjectCardProps {
-  /** Path or URL to an MP4/WebM video demo */
   videoSrc?: string;
-  /** Path or URL to a static image (used when no video is available) */
   imageSrc?: string;
-  /** Project title */
   title: string;
-  /** One-liner business impact hook (displayed prominently) */
   impactHook: string;
-  /** STAR-T Breakdown */
   situation: string;
   task: string;
   action: string;
   result: string;
-  /** Chips for the tech used */
   techStack: string[];
-  /** URL to the live application or article */
   liveUrl: string;
-  /** Custom label for the CTA button (defaults to "Launch Live App") */
   ctaLabel?: string;
-  /** Optional award badge displayed next to the title */
   badge?: string;
 }
 
@@ -45,6 +37,26 @@ export default function ProjectCard({
   badge,
 }: ProjectCardProps) {
   const [activeTab, setActiveTab] = useState<StarTab>("Situation");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [videoVisible, setVideoVisible] = useState(false);
+
+  useEffect(() => {
+    if (!videoSrc || !containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVideoVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, [videoSrc]);
 
   const tabContent: Record<StarTab, string> = {
     Situation: situation,
@@ -56,16 +68,24 @@ export default function ProjectCard({
   return (
     <article className="card-shine group relative flex flex-col overflow-hidden rounded-2xl border border-brand-border bg-brand-surface/60 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-500 hover:border-brand-accent/40 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_rgba(59,130,246,0.10)]">
       {/* ─── Media (Video or Image) ─── */}
-      <div className="relative aspect-video w-full overflow-hidden bg-zinc-900">
+      <div ref={containerRef} className="relative aspect-video w-full overflow-hidden bg-zinc-900">
         {videoSrc ? (
-          <video
-            src={videoSrc}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
+          videoVisible ? (
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-brand-muted/40 text-sm">
+              Loading...
+            </div>
+          )
         ) : imageSrc ? (
           <Image
             src={imageSrc}
@@ -91,7 +111,7 @@ export default function ProjectCard({
             {title}
             {badge && (
               <span className="ml-3 inline-flex items-center gap-1 translate-y-[-2px] rounded-full border border-amber-500/20 bg-amber-500/10 px-2.5 py-0.5 text-xs font-semibold text-amber-500 shadow-[0_0_12px_rgba(245,158,11,0.15)]">
-                <svg className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                <StarIcon />
                 {badge}
               </span>
             )}
@@ -120,7 +140,6 @@ export default function ProjectCard({
                 }`}
               >
                 {tab}
-                {/* Active indicator */}
                 <span
                   aria-hidden="true"
                   className={`absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-brand-accent transition-all duration-300 ${
@@ -170,23 +189,9 @@ export default function ProjectCard({
           className="mt-auto inline-flex items-center gap-2 self-start rounded-lg border border-brand-accent/30 px-5 py-2.5 text-sm font-semibold text-brand-accent transition-all duration-300 hover:bg-brand-accent hover:text-white hover:scale-[1.03]"
         >
           {ctaLabel}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"
-            />
-          </svg>
+          <ExternalLinkIcon />
         </a>
       </div>
     </article>
   );
 }
-
