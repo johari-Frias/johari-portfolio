@@ -52,3 +52,11 @@ npm run dev    # Start dev server (http://localhost:3000)
 npm run build  # Production build
 npm run lint   # ESLint
 ```
+
+# Porfolio Project 
+
+All project documentation is in the `planning` directory.
+
+The key document is PLAN.md included in full below
+
+@planning/PLAN.md

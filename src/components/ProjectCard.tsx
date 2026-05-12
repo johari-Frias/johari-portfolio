@@ -6,6 +6,7 @@ import { ExternalLinkIcon, StarIcon } from "@/components/icons";
 
 export interface ProjectCardProps {
   videoSrc?: string;
+  posterSrc?: string;
   imageSrc?: string;
   title: string;
   impactHook: string;
@@ -24,6 +25,7 @@ type StarTab = (typeof STAR_TABS)[number];
 
 export default function ProjectCard({
   videoSrc,
+  posterSrc,
   imageSrc,
   title,
   impactHook,
@@ -79,7 +81,16 @@ export default function ProjectCard({
               muted
               playsInline
               preload="none"
+              poster={posterSrc}
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : posterSrc ? (
+            <Image
+              src={posterSrc}
+              alt={title}
+              width={800}
+              height={450}
+              className="h-full w-full object-cover"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-brand-muted/40 text-sm">

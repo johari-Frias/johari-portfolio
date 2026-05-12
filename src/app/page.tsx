@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 const PROJECTS = [
   {
     videoSrc: "/videos/project-one-demo.mp4",
+    posterSrc: "/videos/project-one-poster.jpg",
     title: "Data Diagnostic Dashboard",
     impactHook:
       "Automated manual data preprocessing workflows, reducing initial dataset profiling and cleaning time from hours to seconds.",
@@ -33,6 +34,7 @@ const PROJECTS = [
   },
   {
     videoSrc: "/videos/project-two-demo.mp4",
+    posterSrc: "/videos/project-two-poster.jpg",
     title: "MotionMatchAI",
     impactHook:
       "Imagine a fitness application that doesn\u2019t just record your workout, but actively watches your biomechanics, proactively coaches you through sticking points, and connects you with friends for live, synchronized training sessions. MotionMatchAI bridges the gap between expensive personal trainers and solo home workouts by combining real-time edge AI computer vision with a highly scalable, serverless multiplayer cloud architecture.",
