@@ -1,4 +1,5 @@
 import { MailIcon, GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
         {/* Links */}
         <div className="flex items-center gap-6">
           <a
-            href="mailto:johari19@outlook.com"
+            href={`mailto:${SOCIAL_LINKS.email}`}
             className="group flex items-center gap-2 text-sm text-brand-muted transition-colors hover:text-brand-accent"
           >
             <MailIcon className="h-5 w-5" />
@@ -26,7 +27,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://github.com/johari-Frias"
+            href={SOCIAL_LINKS.github}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 text-sm text-brand-muted transition-colors hover:text-brand-accent"
@@ -36,7 +37,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/johari-f-37baa5210"
+            href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 text-sm text-brand-muted transition-colors hover:text-brand-accent"

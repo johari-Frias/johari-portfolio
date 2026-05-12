@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { LinkedInIcon, GitHubIcon, MailIcon } from "@/components/icons";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 /* ─── Categorized Skill Grid ─── */
 const SKILL_CATEGORIES = [
@@ -86,6 +87,7 @@ export default function AboutSection() {
                 width={176}
                 height={176}
                 className="h-full w-full object-cover"
+                sizes="176px"
                 priority
               />
             </div>
@@ -93,7 +95,7 @@ export default function AboutSection() {
             {/* Social row */}
             <div className="flex items-center gap-3">
               <a
-                href="https://www.linkedin.com/in/johari-f-37baa5210"
+                href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -102,7 +104,7 @@ export default function AboutSection() {
                 <LinkedInIcon />
               </a>
               <a
-                href="https://github.com/johari-Frias"
+                href={SOCIAL_LINKS.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -111,7 +113,7 @@ export default function AboutSection() {
                 <GitHubIcon />
               </a>
               <a
-                href="mailto:johari19@outlook.com"
+                href={`mailto:${SOCIAL_LINKS.email}`}
                 aria-label="Email"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-border bg-brand-surface/60 text-brand-muted transition-all duration-300 hover:border-brand-accent/50 hover:text-brand-accent hover:scale-110"
               >

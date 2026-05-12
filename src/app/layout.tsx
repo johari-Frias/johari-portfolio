@@ -28,6 +28,9 @@ export const metadata: Metadata = {
       "I build serverless GenAI applications, event-driven Agentic AI systems, and Python ETL pipelines that scale from the edge to the database.",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 /* ─── Root Layout ─── */
@@ -43,7 +46,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-brand-bg text-brand-text font-sans">
         {/* Skip link — visible only on focus for keyboard users */}
-        <a href="#projects" className="sr-only">
+        <a href="#main-content" className="sr-only">
           Skip to main content
         </a>
         <Navbar />

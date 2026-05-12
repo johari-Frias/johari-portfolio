@@ -220,6 +220,23 @@ body {
   font-size: 0.875rem;
 }
 
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-fade-in-up,
+  .card-shine,
+  .hero-orb--primary,
+  .hero-orb--secondary,
+  .hero-particle,
+  .about-connector-line {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Offset scroll targets for fixed navbar */
 html {
   scroll-padding-top: 4rem;

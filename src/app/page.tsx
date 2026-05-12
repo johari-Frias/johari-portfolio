@@ -118,7 +118,7 @@ const PROJECTS = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
+    <main id="main-content" className="flex flex-col">
       <HeroSection />
 
       <RevealOnScroll>

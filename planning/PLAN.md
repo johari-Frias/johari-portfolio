@@ -63,12 +63,26 @@ Lower-severity items from the code review that are still pending.
 
 | # | Severity | Task | Status |
 |---|----------|------|--------|
-| 4 | Low | Add `sizes="176px"` to profile `<Image>` in AboutSection | Open |
-| 6 | Low | Add `prefers-reduced-motion` media query for marquee and hero animations | Open |
-| 7 | Low | Fix skip-link target to `#main-content` or `#about` in layout.tsx | Open |
-| 9 | Low | Centralize social link URLs into a shared constants file (`src/lib/constants.ts`) | Open |
+| 4 | Low | Add `sizes="176px"` to profile `<Image>` in AboutSection | Done |
+| 6 | Low | Add `prefers-reduced-motion` media query for marquee and hero animations | Done |
+| 7 | Low | Fix skip-link target to `#main-content` in layout.tsx | Done |
+| 9 | Low | Centralize social link URLs into `src/lib/constants.ts` | Done |
 | 10 | Low | Address `new Date().getFullYear()` build-time freeze in Footer (or convert to client component) | Open |
 | 11 | Low | Delete unused default Next.js SVGs from `public/` | Open |
+
+---
+
+## Phase 4b: OG Image + Accessibility + DRY Social Links (Completed 2026-05-12)
+
+| # | Task | Status |
+|---|------|--------|
+| 1 | Dynamic Open Graph image via `src/app/opengraph-image.tsx` (1200x630 branded card) | Done |
+| 2 | Twitter card metadata (`summary_large_image`) in `layout.tsx` | Done |
+| 3 | `prefers-reduced-motion` media query in `globals.css` for all animations | Done |
+| 4 | Fix skip-link to `#main-content`, add `id="main-content"` to `<main>` | Done |
+| 5 | Add `sizes="176px"` to profile image in AboutSection | Done |
+| 6 | Create `src/lib/constants.ts` with centralized `SOCIAL_LINKS` | Done |
+| 7 | Update HeroSection, AboutSection, Footer to import from constants | Done |
 
 ---
 
