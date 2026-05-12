@@ -90,6 +90,30 @@ const PROJECTS = [
       "https://johari-frias.github.io/Amazon-Global-Sales-Analytics/",
     ctaLabel: "View Dashboard",
   },
+  {
+    imageSrc: "/videos/project-four-image.png",
+    title: "Juice Rush",
+    impactHook:
+      "Gamified PWA that trains juice bar employees to recall 38+ recipes under pressure — turning weeks of memorization into days of play.",
+    situation:
+      "Juice Generation new hires must memorize 38+ smoothie, bowl, and juice recipes (5-9 ingredients each) before working the morning rush. Traditional paper-based training was slow, error-prone, and gave managers no visibility into who was ready.",
+    task: "Build a mobile-first training app that drills recipe recall under timed pressure, tracks individual mastery, and lets managers monitor progress — all usable offline on personal phones.",
+    action:
+      "Built a React 18 PWA with a 15-second timed ingredient-selection game at its core. Added progressive difficulty (3x3 to 4x4 grids based on streak), spaced repetition weighting weak recipes, and an RPG leveling system (EXP, rank titles, gated categories) to drive daily engagement. Implemented 6 training modes (Rush, Normal, Zen, Reverse, Shift Simulation, Category Sorter) for varied practice. Integrated Supabase for auth and cloud sync, then built a live leaderboard with multi-metric RPC queries so managers can track top performers. Polished for mobile with sub-frame input lag, haptic feedback, Web Audio chimes, and streak confetti.",
+    result:
+      "38 recipes across 6 categories fully drillable. Leaderboard provides real-time manager visibility. PWA installs to home screen and works offline. Arcade-style feedback loop (speed grades, flow state effects, badge unlocks) designed to replace passive study with active recall practice.",
+    techStack: [
+      "React 18",
+      "Vite",
+      "Tailwind CSS",
+      "Supabase",
+      "Lucide React",
+      "Web Audio API",
+      "canvas-confetti",
+      "vite-plugin-pwa",
+    ],
+    liveUrl: "https://juice-training.vercel.app/",
+  },
 ];
 
 export default function Home() {
