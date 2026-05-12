@@ -1,3 +1,5 @@
+"use client";
+
 import { MailIcon, GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { SOCIAL_LINKS } from "@/lib/constants";
 

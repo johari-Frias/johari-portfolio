@@ -57,7 +57,7 @@ Addressed high and medium severity issues identified during code review (`docs/c
 
 ---
 
-## Phase 4: Remaining Code Review Items (Open)
+## Phase 4: Remaining Code Review Items (Completed 2026-05-12)
 
 Lower-severity items from the code review that are still pending.
 
@@ -67,8 +67,8 @@ Lower-severity items from the code review that are still pending.
 | 6 | Low | Add `prefers-reduced-motion` media query for marquee and hero animations | Done |
 | 7 | Low | Fix skip-link target to `#main-content` in layout.tsx | Done |
 | 9 | Low | Centralize social link URLs into `src/lib/constants.ts` | Done |
-| 10 | Low | Address `new Date().getFullYear()` build-time freeze in Footer (or convert to client component) | Open |
-| 11 | Low | Delete unused default Next.js SVGs from `public/` | Open |
+| 10 | Low | Convert Footer to client component for live `getFullYear()` | Done |
+| 11 | Low | Delete unused default Next.js SVGs from `public/` | Done |
 
 ---
 
