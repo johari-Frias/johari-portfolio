@@ -115,6 +115,36 @@ Diagnosed slow initial page load caused by 23.8 MB of uncompressed video with no
 
 ---
 
+## Phase 7: Performance Diagnostics & Optimization (POR-2) — Awaiting Review
+
+Formal performance audit per Jira ticket POR-2. Run Lighthouse diagnostics, identify remaining bottlenecks, implement optimizations, and verify measurable improvement on desktop and mobile.
+
+**Bottlenecks identified:**
+- Duplicate poster downloads: poster JPGs loaded twice per video card (once via Next.js `<Image>` at ~4.7 KB, again as raw `<video poster=...>` at ~53 KB each = 106 KB wasted)
+- Large uncompressed videos: 6.7 MB + 17.1 MB (addressed in Phase 6, requires ffmpeg for compression)
+
+**Optimization implemented:**
+- Refactored `ProjectCard.tsx` video rendering: removed `poster` attr from `<video>`, keep Next.js `<Image>` overlay visible until `onPlaying` fires, eliminating duplicate poster downloads
+
+**Post-optimization results (production build):**
+- Desktop (1440x900): FCP 60ms, DOM Interactive 24ms, Load Complete 44ms
+- Mobile (375x812): DOM Interactive 37ms, Load Complete 80ms
+- Initial page weight: 672 KB decoded (JS 530 KB + CSS 40 KB + Fonts 79 KB + profile image 6 KB)
+- No videos or poster images loaded until user scrolls to project cards
+- Poster images loaded only once via Next.js optimization (4.7 KB + 4.8 KB vs previous 4.7+53 + 4.8+52 KB)
+
+| # | Task | Status |
+|---|------|--------|
+| 1 | Run performance audit (desktop) — baseline metrics | Done |
+| 2 | Run performance audit (mobile) — baseline metrics | Done |
+| 3 | Identify and document key bottlenecks from audit results | Done |
+| 4 | Fix duplicate poster loading — remove `poster` attr, use `onPlaying` crossfade | Done |
+| 5 | Post-optimization audits — FCP/TTI well under 2-3s target on both viewports | Done |
+| 6 | Run `npm run test` — 8/8 tests pass | Done |
+| 7 | Visual verification via Playwright on desktop (1440x900) and mobile (375x812) | Done |
+
+---
+
 ## Architecture Notes
 
 - **Component model:** Client components (`"use client"`) only where needed: `Navbar`, `ProjectCard`, `RevealOnScroll`, `ScrollToTop`. Everything else is a Server Component.

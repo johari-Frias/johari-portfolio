@@ -42,6 +42,7 @@ export default function ProjectCard({
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [videoVisible, setVideoVisible] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
     if (!videoSrc || !containerRef.current) return;
@@ -72,31 +73,34 @@ export default function ProjectCard({
       {/* ─── Media (Video or Image) ─── */}
       <div ref={containerRef} className="relative aspect-video w-full overflow-hidden bg-zinc-900">
         {videoSrc ? (
-          videoVisible ? (
-            <video
-              ref={videoRef}
-              src={videoSrc}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="none"
-              poster={posterSrc}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-          ) : posterSrc ? (
-            <Image
-              src={posterSrc}
-              alt={title}
-              width={800}
-              height={450}
-              className="h-full w-full object-cover"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center text-brand-muted/40 text-sm">
-              Loading...
-            </div>
-          )
+          <>
+            {videoVisible && (
+              <video
+                ref={videoRef}
+                src={videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="none"
+                onPlaying={() => setVideoPlaying(true)}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            )}
+            {posterSrc && !videoPlaying ? (
+              <Image
+                src={posterSrc}
+                alt={title}
+                width={800}
+                height={450}
+                className={`h-full w-full object-cover${videoVisible ? " absolute inset-0" : ""}`}
+              />
+            ) : !videoVisible ? (
+              <div className="flex h-full w-full items-center justify-center text-brand-muted/40 text-sm">
+                Loading...
+              </div>
+            ) : null}
+          </>
         ) : imageSrc ? (
           <Image
             src={imageSrc}
